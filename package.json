@@ -1,0 +1,30 @@
+{
+  "name": "better-email",
+  "version": "1.0.0",
+  "description": "see github",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EhogGawlic/better-email.git"
+  },
+  "keywords": [
+    "email"
+  ],
+  "author": "EHOGIN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EhogGawlic/better-email/issues"
+  },
+  "homepage": "https://github.com/EhogGawlic/better-email#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "imap": "^0.8.17",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

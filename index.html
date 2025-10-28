@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BETER EMALE</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <div class="box" id="leftbar">
+            <div class="box" id="veryleftbar"></div>
+        </div>
+        <div class="box" id="mainbox">
+            <!--emails go here-->
+            <!--test-->
+            emails<br>
+            <div class="email"><button onclick="
+                fetch('/getemails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: 'email',
+                        pass:'password'
+                    })
+                }).then(response => response.json()).then(data => {
+                    console.log(data);
+                    for (let i = 0; i < data.length; i++) {
+                        const emailDiv = document.createElement('div');
+                        emailDiv.className = 'email';
+                        emailDiv.innerHTML = `<strong>From:</strong> ${data[i].headers.from}
+                                              <strong>To:</strong> ${data[i].headers.to}
+                                              <strong>Subject:</strong> ${data[i].headers.subject}
+                                              <strong>Date:</strong> ${data[i].headers.date}`;
+                                              emailDiv.onclick = function(){
+                                                mainbox.innerHTML = data[i].body;
+                                              }
+                        document.getElementById('mainbox').appendChild(emailDiv);
+                    }
+                })
+            ">TEST</button></div>
+        </div>
+    </body>
+</html>
